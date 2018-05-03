@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>iList</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+  <ion-content>
+
+    <ion-list>
+      <ion-item *ngFor="let item of items">
+
+        <h2>{{ item.nom }}</h2>
+        <p>{{item.descripcio}}</p>
+
+      </ion-item>
+    </ion-list>
+
+</ion-content>

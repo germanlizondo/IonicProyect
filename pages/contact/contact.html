@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>iList</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-title>Crea Tasca</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="todo" (ngSubmit)="CreateTareas()">
+    <ion-item>
+      <ion-label>Nom</ion-label>
+      <ion-input type="text" formControlName="nom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descripció</ion-label>
+      <ion-textarea formControlName="descripcio"></ion-textarea>
+    </ion-item>
+    <button ion-button full [disabled]="!todo.valid" type="submit">Agrega Tasca</button>
+    <button ion-button block (click)="getPicture()">Toma una foto</button>
+  </form>
+  <ion-list>
+    <ion-item *ngFor="let item of ListTareas">
+      <ion-thumbnail item-start>
+        <img [src]="image">
+      </ion-thumbnail>
+      <h2>{{ item.nom }}</h2>
+      <p>{{item.descripcio}}</p>
+
+    </ion-item>
+  </ion-list>
+  <!--   <button ion-button block (click)="getPicture()">Toma una foto</button> -->
+  <!--   <img [src]="image" *ngIf="image" /> -->
+
+
+
+</ion-content>
+
